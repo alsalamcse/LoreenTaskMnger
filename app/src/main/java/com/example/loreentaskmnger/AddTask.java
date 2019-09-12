@@ -22,7 +22,7 @@ public class AddTask extends AppCompatActivity
         edSubject=(EditText)findViewById(R.id.edSubject);
         sbimportant=(SeekBar)findViewById(R.id.sbimportant);
         btnsave=(Button)findViewById(R.id.btnsave);
-        //btnsave.setOnClickListener((view) {dataHandler();};
+        //btnsave.setOnClickListener((view) {dataHandler();
 
 
     }
