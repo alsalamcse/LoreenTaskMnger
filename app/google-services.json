@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "737116968314",
+    "firebase_url": "https://loreentaskmnger.firebaseio.com",
+    "project_id": "loreentaskmnger",
+    "storage_bucket": "loreentaskmnger.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:737116968314:android:20eb70292c8bfd35cef2c3",
+        "android_client_info": {
+          "package_name": "com.example.loreentaskmnger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "737116968314-qkdhhntpoljkvlm78cufj3q8333e6d6f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.loreentaskmnger",
+            "certificate_hash": "905600aa45827a3ea4f60a53a8e7459030b5b400"
+          }
+        },
+        {
+          "client_id": "737116968314-7cidsgnm9peuh3ic1fh4vkq4ja7n17pm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSZa6HX5Ii3n36v_e33TYbTBxyZUlqltk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "737116968314-7cidsgnm9peuh3ic1fh4vkq4ja7n17pm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
