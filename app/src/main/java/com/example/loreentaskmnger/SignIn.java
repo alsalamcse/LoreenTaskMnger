@@ -32,6 +32,7 @@ public class SignIn extends AppCompatActivity {
         btnsignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 dataHandler();
             }
         });
@@ -62,7 +63,7 @@ public class SignIn extends AppCompatActivity {
                 }
                 if (isok)
                 {
-
+                   singIn(email,pasword);
                 }
             }
             public boolean isValidEmailAddress(String email) {
@@ -80,8 +81,16 @@ public class SignIn extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
-                        Toast.makeText(SignIn.this, " Sign successful.", Toast.LENGTH_SHORT);
-
+                        //todo go to main screen(all task activity)
+                        //Toast.makeText(SignIn.this, " Sign successful.", Toast.LENGTH_SHORT).show();
+                     //Intent i=new Intent(SignIn.this,TempAllTaskActivity.class);
+                        Intent i=new Intent(getApplication(),TempAllTaskActivity.class);
+                        startActivity(i);
+                    }
+                    else
+                    {
+                        edemail.setError("email or password is wrong");
+                        //Toast.makeText(SignIn.this,"signIn faild."+)
                     }
                 }
             });

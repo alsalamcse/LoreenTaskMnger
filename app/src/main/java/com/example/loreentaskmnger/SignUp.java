@@ -23,5 +23,21 @@ public class SignUp extends AppCompatActivity
         edRewitePassword=(EditText)findViewById(R.id.edRewitePassword);
         btnsave=(Button)findViewById(R.id.btnsave);
 
+       // btnsave.setOnClickListener()
+    //{
+           // dataHandler();
+      //  }
+
+
+    }
+
+    private void dataHandler()
+    {
+        String firstname=edFirstName.getText().toString();
+        String lastname=edLastName.getText().toString();
+        String phone=edPhone.getText().toString();
+        String email=edEmail.getText().toString();
+        String password=edPasssword.getText().toString();
+        String RewitePassword=edRewitePassword.getText().toString();
     }
 }
