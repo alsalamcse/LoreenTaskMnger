@@ -3,6 +3,7 @@ package com.example.loreentaskmnger;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -23,10 +24,14 @@ public class SignUp extends AppCompatActivity
         edRewitePassword=(EditText)findViewById(R.id.edRewitePassword);
         btnsave=(Button)findViewById(R.id.btnsave);
 
-       // btnsave.setOnClickListener()
-    //{
-           // dataHandler();
-      //  }
+        btnsave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dataHandler();
+            }
+        });
+
+
 
 
     }
@@ -39,5 +44,26 @@ public class SignUp extends AppCompatActivity
         String email=edEmail.getText().toString();
         String password=edPasssword.getText().toString();
         String RewitePassword=edRewitePassword.getText().toString();
+        boolean isOk=true;
+        if (email.length()<4 || email.indexOf('@')<0 || email.indexOf('.')<0)
+        {
+            edEmail.setError("wrong Email");
+            isOk=false;
+        }
+        if (password.length()<8 || password.equals(RewitePassword)==false)
+        {
+            edRewitePassword.setError("Have to be at least 8 char and the same password");
+            edPasssword.setError("Have to be at least 8 char and the same password");
+            isOk=false;
+        }
+        if (firstname.length()==0)
+        {
+            edFirstName.setError("enter name");
+            isOk=false;
+        }
+        if (isOk)
+        {
+
+        }
     }
 }
