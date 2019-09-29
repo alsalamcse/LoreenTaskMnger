@@ -28,12 +28,22 @@ public class SignIn extends AppCompatActivity {
         btnsignin = (Button) findViewById(R.id.btnsignin);
         btnsignup = (Button) findViewById(R.id.btnsignup);
 
+        btnsignin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dataHandler();
+
+            }
+        });
+
 
         btnsignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent i=new Intent(getApplication(),SignUp.class);
+                startActivity(i);
 
-                dataHandler();
+              //  dataHandler();
             }
         });
     }
