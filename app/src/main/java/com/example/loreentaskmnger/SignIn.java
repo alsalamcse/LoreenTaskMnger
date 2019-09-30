@@ -52,30 +52,30 @@ public class SignIn extends AppCompatActivity {
                 String email =edemail .getText().toString();
                 String pasword= edPassword.getText().toString();
                 boolean isok=true;
-               // if (email.length()<4)
-             //  {
-                 //   edemail.setError("Email length Error");
-               //     isok=false;
-             //   }
-              //  if (email.indexOf("@")<0|| email.indexOf(".")<0) {
-               //     edemail.setError("email wrong format ");
-              //      isok = false;
-             //   }
-              //  if (pasword.length()<8)
-              //  {
-              //      edPassword.setError("password length error");
-                //    isok=false;
-             //   }
-                if (isValidEmailAddress(email)==false)
-                {
-                    edemail.setError("Invalid Email");
+                if (email.length()<4)
+              {
+                   edemail.setError("Email length Error");
                     isok=false;
                 }
-                if (isok)
-                {
-                   singIn(email,pasword);
+                if (email.indexOf("@")<0|| email.indexOf(".")<0) {
+                    edemail.setError("email wrong format ");
+                   isok = false;
                 }
-            }
+               if (pasword.length()<8)
+                {
+                    edPassword.setError("password length error");
+                    isok=false;
+               }
+               // if (isValidEmailAddress(email)==false)
+              //  {
+              //      edemail.setError("Invalid Email");
+              //      isok=false;
+                }
+            //    if (isok)
+              //  {
+              //     singIn(email,pasword);
+             //   }
+           // }
             public boolean isValidEmailAddress(String email) {
                 String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
                 java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
