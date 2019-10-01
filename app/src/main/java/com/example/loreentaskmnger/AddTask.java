@@ -9,7 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
 
+import com.example.loreentaskmnger.data.MyTask;
 import com.google.android.gms.common.data.DataBufferSafeParcelable;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class AddTask extends AppCompatActivity
 {
@@ -55,6 +58,24 @@ public class AddTask extends AppCompatActivity
             edSubject.setError("subject length Error");
             isok=false;
         }
+        if (isok)
+        {
+            MyTask t=new MyTask();
+            t.setTittle(title);
+            MyTask s=new MyTask();
+            s.setSubject(subject);
+            createMyTask(t);
+        }
+    }
+
+    private void createMyTask(MyTask t)
+    {
+        //1.building object in data base
+        FirebaseDatabase database=FirebaseDatabase.getInstance();
+        //2.
+        DatabaseReference reference = database.getReference();
+        String key = reference.child("tasks").push().getKey();
+        reference.child("tasks").child(key).setValue(t);
     }
 
 
