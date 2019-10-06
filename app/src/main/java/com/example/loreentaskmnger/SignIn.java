@@ -94,7 +94,7 @@ public class SignIn extends AppCompatActivity {
                         //todo go to main screen(all task activity)
                         //Toast.makeText(SignIn.this, " Sign successful.", Toast.LENGTH_SHORT).show();
                      //Intent i=new Intent(SignIn.this,TempAllTaskActivity.class);
-                        Intent i=new Intent(getApplication(),TempAllTaskActivity.class);
+                        Intent i=new Intent(getApplication(),MainTasksActivity.class);
                         startActivity(i);
                     }
                     else
