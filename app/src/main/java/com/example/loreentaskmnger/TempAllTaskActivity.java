@@ -12,7 +12,7 @@ public class TempAllTaskActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temp_all_task);
 
-       // Intent intent=new Intent(SignIn.this,TempAllTaskActivity.class);
-       // startActivity(intent);
+       Intent intent=new Intent(getApplication(),AddTask.class);
+        startActivity(intent);
     }
 }
