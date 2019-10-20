@@ -15,6 +15,7 @@ import com.example.loreentaskmnger.data.MyTask;
 import com.google.android.gms.common.data.DataBufferSafeParcelable;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -40,7 +41,6 @@ public class AddTask extends AppCompatActivity
                 dataHandler();
             }
         });
-
 
     }
 
@@ -78,8 +78,11 @@ public class AddTask extends AppCompatActivity
         FirebaseDatabase database=FirebaseDatabase.getInstance();
         //2.
         DatabaseReference reference = database.getReference();
+        FirebaseAuth auth=FirebaseAuth.getInstance();//to get the user uid(or other details like email)
+        String uid = auth.getCurrentUser().getUid();
+        t.setOwner(uid);
         String key = reference.child("tasks").push().getKey();
-        reference.child("tasks").child(key).setValue(t);
+        reference.child(uid).child("tasks").child(key).setValue(t);
         reference.child("tasks").child(key).setValue(t).addOnCompleteListener(AddTask.this, new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

@@ -45,7 +45,7 @@ public class SignIn extends AppCompatActivity {
                 Intent i=new Intent(getApplication(),SignUp.class);
                 startActivity(i);
 
-              //  dataHandler();
+
             }
         });
     }

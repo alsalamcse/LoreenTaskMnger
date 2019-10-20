@@ -35,8 +35,6 @@ public class SignUp extends AppCompatActivity
         btnsave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // Intent i=new Intent(getApplication(),SignUp.class);
-             //   startActivity(i);
                 dataHandler();
             }
         });

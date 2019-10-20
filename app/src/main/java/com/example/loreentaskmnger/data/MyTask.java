@@ -5,6 +5,7 @@ public class MyTask {
     private String tittle;
     private String subject;
     private int important,necessary;
+    private String owner;
 
     public String getKey() {
         return Key;
@@ -44,6 +45,14 @@ public class MyTask {
 
     public void setNecessary(int necessary) {
         this.necessary = necessary;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
     @Override
