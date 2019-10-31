@@ -14,22 +14,35 @@ import com.example.loreentaskmnger.R;
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
  * one of the sections/tabs/pages.
  */
-public class SectionsPagerAdapter extends FragmentPagerAdapter {
+public class MyFragmentsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
     private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2};
     private final Context mContext;
+    //1.
+    private AllTasksFragment allTasksFragment;
+    private HistoryFragment historyFragment;
+    private RemoveFragment removeFragment;
 
-    public SectionsPagerAdapter(Context context, FragmentManager fm) {
+    public MyFragmentsPagerAdapter(Context context, FragmentManager fm) {
         super(fm);
         mContext = context;
+        allTasksFragment= new AllTasksFragment();
+        historyFragment = new HistoryFragment();
+        removeFragment =new RemoveFragment();
     }
 
     @Override
     public Fragment getItem(int position) {
         // getItem is called to instantiate the fragment for the given page.
         // Return a PlaceholderFragment (defined as a static inner class below).
-        return PlaceholderFragment.newInstance(position + 1);
+        if (position==0)
+            return allTasksFragment;
+        if (position==1)
+            return historyFragment;
+        if (position==2)
+            return removeFragment;
+        return null;
     }
 
     @Nullable

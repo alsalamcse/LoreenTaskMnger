@@ -10,11 +10,9 @@ import com.google.android.material.tabs.TabLayout;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 
-import com.example.loreentaskmnger.ui.main.SectionsPagerAdapter;
+import com.example.loreentaskmnger.ui.main.MyFragmentsPagerAdapter;
 
 public class MainTasksActivity extends AppCompatActivity {
 
@@ -22,7 +20,7 @@ public class MainTasksActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_tasks);
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
+        MyFragmentsPagerAdapter sectionsPagerAdapter = new MyFragmentsPagerAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
