@@ -66,9 +66,11 @@ public class AddTask extends AppCompatActivity
         {
             MyTask t=new MyTask();
             t.setTittle(title);
+            //t.setImportant(sbimportant);
+            createMyTask(t);
             MyTask s=new MyTask();
             s.setSubject(subject);
-            createMyTask(t);
+            createMyTask(s);
         }
     }
 
