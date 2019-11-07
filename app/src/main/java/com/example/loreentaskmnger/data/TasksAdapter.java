@@ -38,9 +38,9 @@ public class TasksAdapter extends ArrayAdapter<MyTask>
         TextView tvTitle=vitem.findViewById(R.id.itmTvTitle);
         TextView tvSubject=vitem.findViewById(R.id.itmTvSubject);
         RatingBar rbPrio=vitem.findViewById(R.id.itmRatingBar);
-        CheckBox chIsComplete=vitem.findViewById(R.id.itmImageInfo);
+        CheckBox chIsComplete=vitem.findViewById(R.id.itmChbxlsCompleted);
         //getting data source
-        ImageView ivInfo =vitem.findViewById(R.id.itmChbxlsCompleted);
+        ImageView ivInfo =vitem.findViewById(R.id.itmImageInfo);
         MyTask myTask = getItem(position);
         //connect item view to data source
         tvTitle.setText(myTask.getTittle());
