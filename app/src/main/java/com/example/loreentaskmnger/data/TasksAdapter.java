@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -14,6 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.loreentaskmnger.R;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 
 public class TasksAdapter extends ArrayAdapter<MyTask>
 {
@@ -41,7 +44,27 @@ public class TasksAdapter extends ArrayAdapter<MyTask>
         CheckBox chIsComplete=vitem.findViewById(R.id.itmChbxlsCompleted);
         //getting data source
         ImageView ivInfo =vitem.findViewById(R.id.itmImageInfo);
-        MyTask myTask = getItem(position);
+        final MyTask myTask = getItem(position);
+
+        chIsComplete.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked)
+                {
+                    //todo delete this item
+                    FirebaseUtils.getReference().child(myTask.getKey()).removeValue(new DatabaseReference.CompletionListener() {
+                        @Override
+                        public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                            if (databaseError==null)
+                            {
+
+                            }
+                        }
+                    });
+                }
+
+            }
+        });
         //connect item view to data source
         tvTitle.setText(myTask.getTittle());
         tvSubject.setText(myTask.getSubject());
