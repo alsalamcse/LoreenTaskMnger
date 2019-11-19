@@ -1,6 +1,7 @@
 package com.example.loreentaskmnger.data;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,13 +21,17 @@ import com.example.loreentaskmnger.R;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 
-public class TasksAdapter extends ArrayAdapter<MyTask>
+public abstract class TasksAdapter extends ArrayAdapter<MyTask>
 {
 
     public TasksAdapter(@NonNull Context context)
     {
         super(context, R.layout.taskitem);
     }
+
+    public abstract TasksAdapter(@NonNull Context context);
+
+    public abstract TasksAdapter(@NonNull Context context);
 
     /**
      *
@@ -44,7 +50,7 @@ public class TasksAdapter extends ArrayAdapter<MyTask>
         RatingBar rbPrio=vitem.findViewById(R.id.itmRatingBar);
         CheckBox chIsComplete=vitem.findViewById(R.id.itmChbxlsCompleted);
         //getting data source
-        ImageView ivInfo =vitem.findViewById(R.id.itmImageInfo);
+        final ImageView ivInfo =vitem.findViewById(R.id.itmImageInfo);
         final MyTask myTask = getItem(position);
 
         chIsComplete.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -74,7 +80,8 @@ public class TasksAdapter extends ArrayAdapter<MyTask>
             @Override
             public void onClick(View v)
             {
-
+               //PopupMenu popup = new PopupMenu(TasksAdapter.this,ivInfo);
+              //  popup.getMenuInflater().inflate(R.menu.);
                 Toast.makeText(getContext(), "sucessful", Toast.LENGTH_SHORT).show();
             }
         });
@@ -85,4 +92,6 @@ public class TasksAdapter extends ArrayAdapter<MyTask>
         chIsComplete.setChecked(false);
         return vitem;
     }
+
+    protected abstract void onCreate(Bundle savedInstanceState);
 }
